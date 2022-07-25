@@ -1,0 +1,84 @@
+﻿<!-- 모델의 정의에 대한 설명 -->
+@model IEnumerable<WeatherApplication.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+
+    // ViewBag.page의 값이 null이면 1이다.
+    int pageNum = ViewBag.Page ?? 1;
+    int totalCount = ViewBag.TotalCount ?? 0;
+    int maxListCount = ViewBag.MaxListCount ?? 1;
+    int totalPageCount = Convert.ToInt32(Math.Ceiling((double)totalCount / maxListCount));
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Writer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Published_date)
+        </th>
+        <th></th>
+    </tr>
+    <!-- 반복문을 통해서 모델의 값들을 출력 -->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <!--@item.Title 로도 표현이 가능하다. -->
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Writer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Published_date)
+            </td>
+            <td>
+                <!-- <a href="/Edit/@item.Book_U">수정</a>로도 표현이 가능하다. -->
+                @Html.ActionLink("Edit", "Edit", new { id = item.Book_U }) |
+                <a href="/Home/Details/@item.Book_U">상세</a> |
+                <!--@Html.ActionLink("Details", "Details", new { id = item.Book_U }) -->
+                @Html.ActionLink("Delete", "Delete", new { id = item.Book_U })
+            </td>
+        </tr>
+    }
+
+</table>
+<form style="width : 210px;">
+    <div class="input-group">
+        <input class="form-control" type="text" name="keyword" value="" />
+        <span class="input-group-btn">
+            <button class="btn btn-info" type="submit">검색</button>
+        </span>
+    </div>
+</form>
+<div class="text-center">
+    <div class="btn-group">
+        @for (int i = 1; i <= totalPageCount; i++)
+        {
+            <a class="btn btn-@(pageNum == i ? "primary" : "default")" href="?page=@i">@i</a>
+        }
+    </div>
+</div>
