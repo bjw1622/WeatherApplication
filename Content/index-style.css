@@ -5,4 +5,8 @@
 
 #card-body {
     display: flex;
+    margin: auto;
+}
+#card {
+    margin-top: 150px;
 }

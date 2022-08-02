@@ -15,25 +15,15 @@ function weatherBalloon(cityName) {
         .then(function (resp) { return resp.json() }) // Convert data to json
         .then(function (data) {
             const K = 273.15;
-            console.log(data);
-            // 현재 온도
-            console.log((data.main.temp - K).toFixed(1));
-            //최저 온도
-            console.log(data.main.temp_min - K);
-            //최고 온도
-            console.log(data.main.temp_max - K);
-            //체감 온도
-            console.log(data.main.feels_like - K);
-            //기후 (맑음,해, ....)
-            console.log(data.weather[0].main);
-            //풍속
-            console.log(data.wind.speed);
             $("#weather").textContent += `${(data.weather[0].main)}`;
             $("#temp").textContent += `${(data.main.temp - K).toFixed(1)}`;
             $("#temp-min").textContent += `${(data.main.temp_min - K).toFixed(1)}`;
             $("#temp-max").textContent += `${(data.main.temp_max - K).toFixed(1)}`;
             $("#temp-feel").textContent += `${(data.main.feels_like - K).toFixed(1)}`;
             $("#wind").textContent += `${data.wind.speed}`;
+            //if (data.weather[0].main === "Rain") {
+            //    $("#weather-img").src += "~/Content/Images/smog-solid.svg";
+            //}
 
         })
         .catch(function () {

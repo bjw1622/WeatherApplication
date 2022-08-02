@@ -6,23 +6,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>현재 날씨는?</title>
-    <link href="~/Content/index-style.css" rel="stylesheet" />
+    <link href="/Content/index-style.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/203cccc5eb.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="card">
+    <div id="card" style="background-color: aliceblue; width:1000px; height:500px; margin:100px auto auto auto;">
 
-        <form class="input-group flex-nowrap mt-2" onsubmit="return false">
+        <form class="input-group flex-nowrap mt-2" onsubmit="return false" style="margin:50px auto 30px auto">
             <input class="form-control cityName" />
         </form>
 
-        <div id="card-body">
-            <div id="weather-img">
-                <img src="#" alt="이미지 들어올 자리" />
+        <div id="card-body" style="margin: 50px auto auto auto; width:500px; height:300px; display:flex; justify-content:center;" >
+            <div id="weather-img" style="margin-right: 50px;">
+                <img id="weather-img" src="~/Content/Images/smog-solid.svg" />
                 <div id="weather"></div>
             </div>
-            <div id="weather-info">
+            <div id="weather-info" style="margin-left:50px;">
                 <div id="temp">현재 온도 : </div>
                 <div id="temp-min">최저 온도 : </div>
                 <div id="temp-max">최고 온도 : </div>
