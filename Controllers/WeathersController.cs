@@ -18,7 +18,8 @@ namespace WeatherApplication.Controllers
         // GET: Weathers
         public ActionResult Index()
         {
-            return View(db.Weathers.ToList());
+            return (View());
+            //return View(db.Weathers.ToList());
         }
 
         // GET: Weathers/Details/5
@@ -47,7 +48,7 @@ namespace WeatherApplication.Controllers
         // 자세한 내용은 https://go.microsoft.com/fwlink/?LinkId=317598을(를) 참조하세요.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Weather_Num,Weather_date,degree")] Weather weather)
+        public ActionResult Create([Bind(Include = "Weather_Num,Region,Date,Main_Temp,Min_Temp,Max_Temp,Feel_Temp,Weather_Status,Wind")] Weather weather)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +80,7 @@ namespace WeatherApplication.Controllers
         // 자세한 내용은 https://go.microsoft.com/fwlink/?LinkId=317598을(를) 참조하세요.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Weather_Num,Weather_date,degree")] Weather weather)
+        public ActionResult Edit([Bind(Include = "Weather_Num,Region,Date,Main_Temp,Min_Temp,Max_Temp,Feel_Temp,Weather_Status,Wind")] Weather weather)
         {
             if (ModelState.IsValid)
             {

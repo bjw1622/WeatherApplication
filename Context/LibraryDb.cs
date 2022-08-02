@@ -8,7 +8,7 @@ namespace WeatherApplication.Context
     {
         //생성자 생성
         //Web.config에서 설정한 이름으로
-        public LibraryDb() : base("name=DBCS") { }
+        public LibraryDb() : base("name=DBMS") { }
         public DbSet<Book> Books { get; set; }
     }
 }
