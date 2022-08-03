@@ -172,10 +172,6 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Weathers\Create.cshtml" />
-    <Content Include="Views\Weathers\Delete.cshtml" />
-    <Content Include="Views\Weathers\Details.cshtml" />
-    <Content Include="Views\Weathers\Edit.cshtml" />
     <Content Include="Views\Weathers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

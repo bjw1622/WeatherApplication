@@ -16,6 +16,7 @@
         <form class="input-group flex-nowrap mt-2" onsubmit="return false" style="margin:50px auto 30px auto">
             <input class="form-control cityName" />
         </form>
+        <button id="weather_save">저장</button>
 
         <div id="card-body" style="margin: 50px auto auto auto; width:500px; height:300px; display:flex; justify-content:center;" >
             <div id="weather-img" style="margin-right: 50px;">
@@ -23,16 +24,14 @@
                 <div id="weather"></div>
             </div>
             <div id="weather-info" style="margin-left:50px;">
-                <div id="temp">현재 온도 : </div>
-                <div id="temp-min">최저 온도 : </div>
-                <div id="temp-max">최고 온도 : </div>
-                <div id="temp-feel">체감 온도 : </div>
-                <div id="wind">풍속 : </div>
+                <div id="temp"></div>
+                <div id="temp-min"></div>
+                <div id="temp-max"></div>
+                <div id="temp-feel"></div>
+                <div id="wind"></div>
             </div>
         </div>
     </div>
-
-
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/index.js"></script>
