@@ -142,8 +142,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\clear.svg" />
+    <Content Include="Content\Images\cloud.svg" />
     <Content Include="Content\Images\rain.svg" />
-    <Content Include="Content\Images\smog-solid.svg" />
     <Content Include="Content\Images\snow.svg" />
     <Content Include="Content\index-style.css" />
     <Content Include="favicon.ico" />

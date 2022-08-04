@@ -1,5 +1,6 @@
 ﻿const cityName = document.querySelector('.cityName');
 const Date_T = new Date().toISOString();
+const date = new Date();
 const _ = (element) => {
     return document.querySelector(element);
 }
@@ -20,21 +21,29 @@ function weatherBalloon(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=ef95dd1b58d9d21b10e7328f915d35ad')
         .then(function (resp) { return resp.json() }) // Convert data to json
         .then(function (data) {
+
             _("#weather_save").style.display = "block";
+
             const K = 273.15;
+
             _("#weather").textContent += `${(data.weather[0].main)}`;
             _("#temp").textContent += `${(data.main.temp - K).toFixed(1)}`;
             _("#temp-min").textContent += `${(data.main.temp_min - K).toFixed(1)}`;
             _("#temp-max").textContent += `${(data.main.temp_max - K).toFixed(1)}`;
             _("#temp-feel").textContent += `${(data.main.feels_like - K).toFixed(1)}`;
             _("#wind").textContent += `${data.wind.speed}`;
-            console.log("a");
-            if (`${data.weather[0].main}` === "Clouds") {
-                console.log($("#weather-img").src);
-                $("#weather-img").src = "~/Content/Images/smog-solid.svg";
-                console.log($("#weather-img").src);
-            } else {
-                console.log($("#weather-img").src);
+
+            if (_("#weather").textContent === "Clouds") {
+                _("#weather-image").src = "/Content/Images/cloud.svg";
+            }
+            else if (_("#weather").textContent === "Rain") {
+                _("#weather-image").src = "/Content/Images/rain.svg";
+            }
+            else if (_("#weather").textContent === "Snow") {
+                _("#weather-image").src = "/Content/Images/snow.svg";
+            }
+            else if (_("#weather").textContent === "Clear") {
+                _("#weather-image").src = "/Content/Images/clear.svg";
             }
         })
         .catch(function () {
@@ -60,7 +69,7 @@ _("#weather_save").addEventListener('click', () => {
         type: 'post',
         dataType: "json",
         data: JSON.stringify(param),
-        contentType:"application/json",
+        contentType: "application/json",
         success: function (data) {
             alter("등록성공");
         },
