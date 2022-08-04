@@ -19,16 +19,14 @@ namespace WeatherApplication.Controllers
         // GET: Weathers
         public ActionResult Index()
         {
+            Console.WriteLine("Index 페이지");
             return View();
         }
 
-        //Post method to add details
         [HttpPost]
         public ActionResult AddWeathers(Weather obj)
         {
-            Console.WriteLine(obj);
             AddDetails(obj);
-
             return View();
         }
 
@@ -37,7 +35,6 @@ namespace WeatherApplication.Controllers
         {
             string constr = ConfigurationManager.ConnectionStrings["WeatherDB"].ToString();
             con = new SqlConnection(constr);
-
         }
 
         //DB에 추가 
@@ -53,14 +50,12 @@ namespace WeatherApplication.Controllers
                 com.Parameters.AddWithValue("@Max_Temp", obj.Max_Temp);
                 com.Parameters.AddWithValue("@Feel_Temp", obj.Feel_Temp);
                 com.Parameters.AddWithValue("@Wind", obj.Wind);
-                com.Parameters.AddWithValue("@Weather_No", 1);
+                com.Parameters.AddWithValue("@Weather_No", obj.Weather_No);
                 int result = com.ExecuteNonQuery();
-                Console.WriteLine("반영된 열의 개수 " + result);
                 com.ExecuteNonQuery();
             }
             con.Close();
             con.Dispose();
-
         }
     }
 }

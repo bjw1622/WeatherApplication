@@ -38,32 +38,28 @@ function weatherBalloon(cityName) {
             // catch any errors
         });
 }
+
+
 _("#weather_save").addEventListener('click', () => {
+    const param = {
+        "Main_Temp": parseFloat($("#temp").text().replace(/^\D+/g, '')),
+        "Min_Temp": parseFloat($("#temp-min").text().replace(/^\D+/g, '')),
+        "Max_Temp": parseFloat($("#temp-max").text().replace(/^\D+/g, '')),
+        "Feel_Temp": parseFloat($("#temp-feel").text().replace(/^\D+/g, '')),
+        "Wind": parseFloat($("#wind").text().replace(/^\D+/g, '')),
+        "Weather_No": count += 1,
+    }
+    console.log(param);
     $.ajax({
         url: '/Weathers/AddWeathers',
         type: 'post',
-        data:
-            {
-                "Main_Temp": $("#temp").text().replace(/^\D+/g, ''),
-                "Min_Temp": $("#temp-min").text().replace(/^\D+/g, ''),
-                "Max_Temp": $("#temp-max").text().replace(/^\D+/g, ''),
-                "Feel_Temp": $("#temp-feel").text().replace(/^\D+/g, ''),
-                "Wind": $("#wind").text().replace(/^\D+/g, ''),
-                "Weather_No": count += 1,
-
-            }
-        ,
-        success: function (result) {
-            if (result) {
-                alert("완료");
-            }
-            else {
-                alert("전송된 값 없음");
-            }
-            //console.log(data);
+        dataType: "json",
+        data: JSON.stringify(param),
+        contentType:"application/json",
+        success: function (data) {
+            alter("등록성공");
         },
-        error: function (err) {
-
+        error: function () {
         }
     });
 })
