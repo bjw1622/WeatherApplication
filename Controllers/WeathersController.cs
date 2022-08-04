@@ -6,15 +6,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WeatherApplication.Context;
 using WeatherApplication.Models;
 
 namespace WeatherApplication.Controllers
 {
     public class WeathersController : Controller
 
-    {   
-        // sqlConnection 
-        private SqlConnection con;
+    {
+        Weather wea = new Weather();
 
         // GET: Weathers
         public ActionResult Index()
@@ -24,38 +24,16 @@ namespace WeatherApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddWeathers(Weather obj)
+        public ActionResult AddWeathers(WeatherEntity obj)
         {
-            AddDetails(obj);
+            wea.AddDetails(obj);
             return View();
         }
 
-        // DB연결
-        private void Conn()
+        public ActionResult ListWeather()
         {
-            string constr = ConfigurationManager.ConnectionStrings["WeatherDB"].ToString();
-            con = new SqlConnection(constr);
-        }
-
-        //DB에 추가 
-        private void AddDetails(Weather obj)
-        {
-            Conn();
-            con.Open();
-            using (SqlCommand com = new SqlCommand("dbo.InsertWeather", con))
-            {
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@Main_Temp", obj.Main_Temp);
-                com.Parameters.AddWithValue("@Min_Temp", obj.Min_Temp);
-                com.Parameters.AddWithValue("@Max_Temp", obj.Max_Temp);
-                com.Parameters.AddWithValue("@Feel_Temp", obj.Feel_Temp);
-                com.Parameters.AddWithValue("@Wind", obj.Wind);
-                com.Parameters.AddWithValue("@Weather_No", obj.Weather_No);
-                int result = com.ExecuteNonQuery();
-                com.ExecuteNonQuery();
-            }
-            con.Close();
-            con.Dispose();
+            var weatherList = wea.GetList();
+            return View(weatherList);
         }
     }
 }

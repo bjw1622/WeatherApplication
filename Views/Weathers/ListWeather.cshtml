@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "ListWeather";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+</head>
+<body style=" background-color: #99CCFF; ">
+    <div style="background-color: aliceblue; width:1000px; height:300px; margin:180px auto auto auto; border-radius:20px;">
+        <table class="table" style="margin:auto; width:900px;">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-center">지역</th>
+                    <th class="text-center">현재 온도</th>
+                    <th class="text-center">최고 온도</th>
+                    <th class="text-center">최저 온도</th>
+                    <th class="text-center">체감 온도</th>
+                    <th class="text-center">풍량</th>
+                    <th class="text-center">조회 날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        <td class="text-center">@item.Region</td>
+                        <td class="text-center">@item.Main_Temp</td>
+                        <td class="text-center">@item.Max_Temp</td>
+                        <td class="text-center">@item.Min_Temp</td>
+                        <td class="text-center">@item.Feel_Temp</td>
+                        <td class="text-center">@item.Wind</td>
+                        <td class="text-center">@item.Date_T</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

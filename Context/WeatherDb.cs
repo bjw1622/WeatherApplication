@@ -7,7 +7,7 @@ namespace WeatherApplication.Context
     {
         //생성자 생성
         //Web.config에서 설정한 이름으로
-        public WeatherDb() : base("name=DBMS") { }
-        public DbSet<Weather> Weathers { get; set; }
+        public WeatherDb() : base("name=WeatherDB") { }
+        public DbSet<WeatherEntity> Weathers { get; set; }
     }
 }

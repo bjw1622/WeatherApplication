@@ -10,17 +10,16 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/203cccc5eb.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div id="card" style="background-color: aliceblue; width:1000px; height:500px; margin:100px auto auto auto;">
-
+<body style=" background-color: #99CCFF; ">
+    <div id="card" style="background-color: aliceblue; width:1000px; height:500px; margin:180px auto auto auto; border-radius:20px;">
         <form class="input-group flex-nowrap mt-2" onsubmit="return false" style="margin:50px auto 30px auto">
-            <input class="form-control cityName" />
+            <input class="form-control cityName" style="border-radius:5px;" />
         </form>
-        <button id="weather_save">저장</button>
+        <button class="form-control" id="weather_save" style="display: none; width: 120px; margin: auto; border-radius: 5px;">조회 기록 저장</button>
 
-        <div id="card-body" style="margin: 50px auto auto auto; width:500px; height:300px; display:flex; justify-content:center;" >
-            <div id="weather-img" style="margin-right: 50px;">
-                <img id="weather-img" src="~/Content/Images/smog-solid.svg" />
+        <div id="card-body" style="margin: 50px auto auto auto; width:500px; height:300px; display:flex; justify-content:center;">
+            <div id="weather-img" style="margin:20px 50px 0px 0px;">
+                <img id="weather-img" src=""/>
                 <div id="weather"></div>
             </div>
             <div id="weather-info" style="margin-left:50px;">
