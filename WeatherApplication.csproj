@@ -132,7 +132,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\WeatehrEntity.cs" />
+    <Compile Include="Entitys\WeatehrEntity.cs" />
     <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -146,6 +146,7 @@
     <Content Include="Content\Images\rain.svg" />
     <Content Include="Content\Images\snow.svg" />
     <Content Include="Content\index-style.css" />
+    <Content Include="Content\List-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

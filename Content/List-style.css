@@ -1,0 +1,16 @@
+﻿body {
+    background-color: #99CCFF;
+}
+
+#card {
+    background-color: aliceblue;
+    width: 1000px;
+    height: 300px;
+    margin: 180px auto auto auto;
+    border-radius: 20px;
+}
+
+#card-body {
+    margin: auto;
+    width: 900px;
+}

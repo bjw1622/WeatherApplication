@@ -1,11 +1,42 @@
-﻿#card {
+﻿body {
+    background-color: #99CCFF;
+}
+
+#card {
     display: flex;
     flex-direction: column;
+    background-color: aliceblue;
+    width: 1000px;
+    height: 500px;
+    margin: 180px auto auto auto;
+    border-radius: 20px;
+}
+
+#info {
+    color: darkgrey;
+    margin: 30px auto auto auto;
+}
+
+#cityName-input {
+    border-radius: 5px;
+}
+
+#weather_save {
+    display: none;
+    width: 120px;
+    margin: auto;
+    border-radius: 5px;
 }
 
 #card-body {
+    margin: 50px auto auto auto;
+    width: 500px;
+    height: 300px;
     display: flex;
-    margin: auto;
+    justify-content: center;
+}
+#weather-img {
+    margin: 20px 50px 0px 0px;
 }
 #card {
     margin-top: 150px;
