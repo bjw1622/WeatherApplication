@@ -65,6 +65,7 @@ namespace WeatherApplication.Models
                     wea.Feel_Temp = (long)Convert.ToDouble(rdr["Temp_Feel"]);
                     wea.Wind = Convert.ToInt64(rdr["Wind"]);
                     wea.Date_T = Convert.ToString(rdr["Date_T"]);
+                    Console.WriteLine(wea.Date_T);
                     weathers.Add(wea);
 
                 }

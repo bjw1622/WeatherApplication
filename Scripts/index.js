@@ -1,9 +1,26 @@
 ﻿const cityName = document.querySelector('.cityName');
-const Date_T = new Date().toISOString();
-const date = new Date();
+const Date_T = dateFormat(new Date());
 const _ = (element) => {
     return document.querySelector(element);
 }
+
+//프로시저 insterWeather에서 date 타입 수정
+function dateFormat(date) {
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+    hour = hour >= 10 ? hour : '0' + hour;
+    minute = minute >= 10 ? minute : '0' + minute;
+    second = second >= 10 ? second : '0' + second;
+
+    return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+}
+
 //한국 주요도시 변환
 cityName.addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
@@ -85,9 +102,9 @@ _("#weather_save").addEventListener('click', () => {
         "Max_Temp": parseFloat($("#temp-max").text().replace(/^\D+/g, '')),
         "Feel_Temp": parseFloat($("#temp-feel").text().replace(/^\D+/g, '')),
         "Wind": parseFloat($("#wind").text().replace(/^\D+/g, '')),
-        "Date_T": Date_T,
+        "Date_T" : Date_T,
     }
-    console.log(param);
+    console.log(param.Date_T);
     $.ajax({
         url: '/Weathers/AddWeathers',
         type: 'post',
@@ -95,6 +112,7 @@ _("#weather_save").addEventListener('click', () => {
         data: JSON.stringify(param),
         contentType: "application/json",
         success: function (data) {
+            console.log(data);
             alter("등록성공");
         },
         error: function () {
