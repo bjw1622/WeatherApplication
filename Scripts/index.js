@@ -4,9 +4,33 @@ const date = new Date();
 const _ = (element) => {
     return document.querySelector(element);
 }
+//한국 주요도시 변환
 cityName.addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
-        const cityName = event.target.value;
+        let cityName = event.target.value;
+        switch (event.target.value) {
+            case '서울':
+                cityName = "seoul";
+                break;
+            case '부산':
+                cityName = "busan";
+                break;
+            case '대구':
+                cityName = "daegu";
+                break;
+            case '광주':
+                cityName = "gwangju";
+                break;
+            case '제주':
+                cityName = "jeju";
+                break;
+            case '아산':
+                cityName = "asan";
+                break;
+            case '천안':
+                cityName = "cheonan";
+                break;
+        }
         _("#weather").textContent = "";
         _("#temp").textContent = `현재 온도 : `;
         _("#temp-min").textContent = `최저 온도 : `;
