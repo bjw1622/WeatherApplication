@@ -19,7 +19,6 @@ namespace WeatherApplication.Controllers
         // GET: Weathers
         public ActionResult Index()
         {
-            Console.WriteLine("Index 페이지");
             return View();
         }
 
