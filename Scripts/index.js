@@ -102,9 +102,9 @@ _("#weather_save").addEventListener('click', () => {
         "Max_Temp": parseFloat($("#temp-max").text().replace(/^\D+/g, '')),
         "Feel_Temp": parseFloat($("#temp-feel").text().replace(/^\D+/g, '')),
         "Wind": parseFloat($("#wind").text().replace(/^\D+/g, '')),
-        "Date_T" : Date_T,
+        "Date_T": Date_T,
     }
-    console.log(param.Date_T);
+    console.log(param);
     $.ajax({
         url: '/Weathers/AddWeathers',
         type: 'post',

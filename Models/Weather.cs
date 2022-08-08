@@ -59,13 +59,12 @@ namespace WeatherApplication.Models
                     // 필드 데이타 엑세스
                     WeatherEntity wea = new WeatherEntity();
                     wea.Region = Convert.ToString(rdr["Region"]);
-                    wea.Main_Temp = (long)Convert.ToDouble(rdr["Temp_Main"]);
-                    wea.Min_Temp = (long)Convert.ToDouble(rdr["Temp_Min"]);
-                    wea.Max_Temp = (long)Convert.ToDouble(rdr["Temp_Max"]);
-                    wea.Feel_Temp = (long)Convert.ToDouble(rdr["Temp_Feel"]);
+                    wea.Main_Temp = Convert.ToDouble(rdr["Temp_Main"]);
+                    wea.Min_Temp = Convert.ToDouble(rdr["Temp_Min"]);
+                    wea.Max_Temp = Convert.ToDouble(rdr["Temp_Max"]);
+                    wea.Feel_Temp = Convert.ToDouble(rdr["Temp_Feel"]);
                     wea.Wind = Convert.ToInt64(rdr["Wind"]);
                     wea.Date_T = Convert.ToString(rdr["Date_T"]);
-                    Console.WriteLine(wea.Date_T);
                     weathers.Add(wea);
 
                 }
