@@ -124,8 +124,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Context\LibraryDb.cs" />
-    <Compile Include="Context\WeatherDb.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WeathersController.cs" />
     <Compile Include="Global.asax.cs">
