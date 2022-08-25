@@ -4,7 +4,6 @@ const _ = (element) => {
     return document.querySelector(element);
 }
 
-//프로시저 insterWeather에서 date 타입 수정
 function dateFormat(date) {
     let month = date.getMonth() + 1;
     let day = date.getDate();
@@ -21,7 +20,6 @@ function dateFormat(date) {
     return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 }
 
-//한국 주요도시 변환
 cityName.addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
         let cityName = event.target.value;
@@ -60,7 +58,7 @@ cityName.addEventListener("keypress", (event) => {
 
 function weatherBalloon(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=ef95dd1b58d9d21b10e7328f915d35ad')
-        .then(function (resp) { return resp.json() }) // Convert data to json
+        .then(function (resp) { return resp.json() })
         .then(function (data) {
 
             _("#weather_save").style.display = "block";
@@ -89,7 +87,6 @@ function weatherBalloon(cityName) {
         })
         .catch(function () {
             alert("틀린 도시 이름 입니다. 다시 입력해주세요.")
-            // catch any errors
         });
 }
 
@@ -104,18 +101,17 @@ _("#weather_save").addEventListener('click', () => {
         "Wind": parseFloat($("#wind").text().replace(/^\D+/g, '')),
         "Date_T": Date_T,
     }
-    console.log(param);
     $.ajax({
         url: '/Weathers/AddWeathers',
         type: 'post',
-        dataType: "json",
         data: JSON.stringify(param),
+        dataType: "json",
         contentType: "application/json",
         success: function (data) {
-            console.log(data);
             alter("등록성공");
         },
         error: function () {
+            alert('등록실패');
         }
     });
 })
