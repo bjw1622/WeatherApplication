@@ -10,7 +10,6 @@ namespace WeatherApplication.Models
     public class Weather
     {
 
-        // sqlConnection 
         private SqlConnection con;
 
         public void Conn()
@@ -23,7 +22,7 @@ namespace WeatherApplication.Models
         {
             Conn();
             con.Open();
-            // 사용할 프로시저의 이름을 설정
+            // 사용할 로시저의 이름을 설정
             using (SqlCommand com = new SqlCommand("dbo.InsertWeather", con))
             {
                 com.CommandType = CommandType.StoredProcedure;
@@ -40,23 +39,19 @@ namespace WeatherApplication.Models
             con.Dispose();
         }
 
-        List<WeatherEntity> weathers = new List<WeatherEntity>();
         public List<WeatherEntity> GetList()
         {
+            List<WeatherEntity> weathers = new List<WeatherEntity>();
             Conn();
             con.Open();
-            // 사용할 프로시저의 이름을 설정
             using (SqlCommand com = new SqlCommand("dbo.SelectWeather", con))
             {
                 com.CommandType = CommandType.StoredProcedure;
                 
                 com.ExecuteNonQuery();
-                // SqlDataReader 객체를 리턴
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read())
                 {
-                    // C# 인덱서를 사용하여
-                    // 필드 데이타 엑세스
                     WeatherEntity wea = new WeatherEntity();
                     wea.Region = Convert.ToString(rdr["Region"]);
                     wea.Main_Temp = Convert.ToDouble(rdr["Temp_Main"]);
@@ -68,7 +63,6 @@ namespace WeatherApplication.Models
                     weathers.Add(wea);
 
                 }
-                // 사용후 닫음
                 rdr.Close();
             }
             con.Close();
