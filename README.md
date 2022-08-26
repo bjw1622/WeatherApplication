@@ -10,4 +10,4 @@ asp.net 4.8 mvc weather application
 ![image](https://user-images.githubusercontent.com/63109802/186834335-77c894c6-f30f-48c6-9021-63ec37ba24c0.png)
 
 ### 조회 결과 저장 화면
-![image](https://user-images.githubusercontent.com/63109802/183320876-345e3b8a-6b9c-4188-a3e0-576e0a995992.png)
+![image](https://user-images.githubusercontent.com/63109802/186834708-f9fa3e67-c4db-4d84-b95c-59a472a3a6eb.png)
