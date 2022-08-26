@@ -11,9 +11,18 @@
     <script src="https://kit.fontawesome.com/203cccc5eb.js" crossorigin="anonymous"></script>
 </head>
 <body style=" background-color: #99CCFF;">
-    <div id="card">
+    <div class="container" style="text-align: center;">
+        <input style="text-align: center; margin-top: 15px; border: 1px solid #ccc; border-radius:5px;"  type="text" id="message" />
+        <input class="btn btn-light" type="button" id="sendmessage" value="Send" />
+        <input type="hidden" id="displayname" />
+    </div>
+    <div id="discussion">
+        <h6 id="info">실시간 채팅</h6>
+    </div>
+
+    <div id="card" style="margin: 50px auto auto auto;">
         <h3 id="info">날씨 조회를 원하시는 도시명을 입력해주세요.</h3>
-            <input class="form-control cityName" id="cityName-input" style="margin:50px auto 30px auto"/>
+        <input class="form-control cityName" id="cityName-input" style="margin:50px auto 30px auto" />
         <button class="form-control" id="weather_save">조회 기록 저장</button>
 
         <div id="card-body">
@@ -31,7 +40,33 @@
         </div>
     </div>
 
+
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/index.js"></script>
+    @section scripts {
+        <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+        <script src="~/signalr/hubs"></script>
+        <script>
+            $(function () {
+                var chat = $.connection.chatHub;
+                chat.client.addNewMessageToPage = function (name, message) {
+                    $('#discussion').append('<div><strong>' + htmlEncode(name)
+                        + '</strong>: ' + htmlEncode(message) + '</div>');
+                };
+                $('#displayname').val(prompt('사용자 이름을 입력해주세요:', ''));
+                $('#message').focus();
+                $.connection.hub.start().done(function () {
+                    $('#sendmessage').click(function () {
+                        chat.server.send($('#displayname').val(), $('#message').val());
+                        $('#message').val('').focus();
+                    });
+                });
+            });
+            function htmlEncode(value) {
+                var encodedValue = $('<div />').text(value).html();
+                return encodedValue;
+            }
+        </script>
+    }
 </body>
 </html>
