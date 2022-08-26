@@ -25,5 +25,6 @@ namespace WeatherApplication.Controllers
             var weatherList = wea.GetList();
             return View(weatherList);
         }
+
     }
 }
