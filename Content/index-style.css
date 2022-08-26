@@ -56,3 +56,7 @@
     background-color: white;
     border-radius: 15px;
 }
+
+.send-btn:focus {
+    outline: none;
+}
