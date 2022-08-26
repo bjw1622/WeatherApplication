@@ -105,13 +105,11 @@ _("#weather_save").addEventListener('click', () => {
         url: '/Weathers/AddWeathers',
         type: 'post',
         data: JSON.stringify(param),
-        dataType: "json",
         contentType: "application/json",
         success: function (data) {
-            alter("등록성공");
+            alert("등록성공");
         },
         error: function () {
-            alert('등록실패');
         }
     });
 })

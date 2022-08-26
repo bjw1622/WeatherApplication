@@ -15,10 +15,9 @@ namespace WeatherApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddWeathers(WeatherEntity obj)
+        public void AddWeathers(WeatherEntity obj)
         {
             wea.AddDetails(obj);
-            return View();
         }
 
         public ActionResult ListWeather()
