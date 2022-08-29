@@ -107,7 +107,7 @@ _("#weather_save").addEventListener('click', () => {
         data: JSON.stringify(param),
         contentType: "application/json",
         success: function (data) {
-            alert("등록성공");
+            alert("등록 성공");
         },
         error: function () {
         }
