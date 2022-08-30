@@ -47,8 +47,6 @@ namespace WeatherApplication.Models
             using (SqlCommand com = new SqlCommand("dbo.SelectWeather", con))
             {
                 com.CommandType = CommandType.StoredProcedure;
-                
-                com.ExecuteNonQuery();
                 SqlDataReader rdr = com.ExecuteReader();
                 while (rdr.Read())
                 {
