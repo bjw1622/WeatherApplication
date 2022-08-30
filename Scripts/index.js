@@ -45,6 +45,24 @@ cityName.addEventListener("keypress", (event) => {
             case '천안':
                 cityName = "cheonan";
                 break;
+            case '울산':
+                cityName = "ulsan";
+                break;
+            case '파리':
+                cityName = "paris";
+                break;
+            case '런던':
+                cityName = "london";
+                break;
+            case '미국':
+                cityName = "america";
+                break;
+            case '마드리드':
+                cityName = "madrid";
+                break;
+            case '한국':
+                cityName = "korea";
+                break;
         }
         _("#weather").textContent = "";
         _("#temp").textContent = `현재 온도 : `;
