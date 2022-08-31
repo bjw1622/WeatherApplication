@@ -12,7 +12,7 @@ namespace WeatherApplication.Models
 
         private SqlConnection con;
 
-        public void Conn()
+        private void Conn()
         {
             string constr = ConfigurationManager.ConnectionStrings["WeatherDB"].ToString();
             con = new SqlConnection(constr);
